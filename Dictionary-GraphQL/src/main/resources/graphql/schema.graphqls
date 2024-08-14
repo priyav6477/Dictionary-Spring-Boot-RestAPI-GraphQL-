@@ -1,0 +1,23 @@
+type Word {
+    id: ID!
+    name: String!
+    definition: String!
+    wordUsage: String!
+}
+
+input WordInput {
+    name: String!
+    definition: String!
+    wordUsage: String!
+}
+
+type Query {
+    getWordByName(name: String!): Word
+    getWordsByIndex(name: String!): [Word]
+}
+
+type Mutation {
+    saveWord(word: WordInput!): Word
+    updateWord(id: ID!, word: WordInput!): Word
+    deleteWord(id: ID!): Boolean
+}
